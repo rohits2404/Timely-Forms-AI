@@ -38,6 +38,7 @@ Do not include markdown code fences or any prose. Output JSON only.`;
         });
         text = result.choices[0].message.content;
     } catch (err) {
+        console.log(err);
         throw ApiError.internal(`AI Request Failed: ${err.message}`);
     }
 

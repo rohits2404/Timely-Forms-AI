@@ -32,7 +32,7 @@ export async function generateForm(prompt) {
         You are an expert form designer. Create a thoughtful, well-structured form based on this request: "${prompt}".
         Use a logical order, group related questions, add a "section" or "heading" block where helpful, choose the most appropriate field type for each question, and mark essential questions as required. Aim for 5-12 questions depending on the complexity of the request.
         `,
-        schemaHint
+        { schemaHint }
     );
 
     return normalizeForm(data);
@@ -60,7 +60,7 @@ export async function generateValidation({ label, type, description = "" }) {
         Field label: "${label}", Field type: "${type}", description ? Context: ${description}.
         Provide a regex pattern when it improves data quality (e.g. phone, postal code), reasonable length/number bounds, and a friendly, specific error "message". Use null for rules that don't apply.
         `,
-        schemaHint
+        { schemaHint }
     );
 
     return {
@@ -91,7 +91,7 @@ export async function improveQuestion({ label, type = "short_text" }) {
         Improve this ${type} survey/form question for clarity, neutrality and engagement: "${label}".
         Return the rewritten question as "improved", a one-sentence note on what you improved as "clarity", and 2-3 relevant follow-up questions as "followUps".
         `,
-        schemaHint
+        { schemaHint }
     );
 
     return {
